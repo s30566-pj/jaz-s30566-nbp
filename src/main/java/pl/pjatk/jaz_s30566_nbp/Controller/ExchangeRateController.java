@@ -13,7 +13,7 @@ import pl.pjatk.jaz_s30566_nbp.Service.ExchangeService;
 import java.time.LocalDateTime;
 
 @RestController
-@RequestMapping("/")
+@RequestMapping("/api")
 @Tag(name = "Endpoints", description = "Endpoints for getting currency exchange rate")
 public class ExchangeRateController {
 
