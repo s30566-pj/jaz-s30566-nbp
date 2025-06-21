@@ -11,14 +11,15 @@ public class Exchange {
 
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
-    private Integer id;
+    @Column(name = "id", unique = true)
+    private Long id;
     private String currency;
     private LocalDateTime startDate;
     private LocalDateTime endDate;
-    private String exchangeRate;
+    private double exchangeRate;
     private LocalDateTime queryTime;
 
-    public Exchange(Integer id, String currency, LocalDateTime startDate, LocalDateTime endDate, String exchangeRate, LocalDateTime queryTime) {
+    public Exchange(Long id, String currency, LocalDateTime startDate, LocalDateTime endDate, double exchangeRate, LocalDateTime queryTime) {
         this.id = id;
         this.currency = currency;
         this.startDate = startDate;
@@ -27,7 +28,7 @@ public class Exchange {
         this.queryTime = queryTime;
     }
 
-    public Exchange(String currency, LocalDateTime startDate, LocalDateTime endDate, String exchangeRate, LocalDateTime queryTime) {
+    public Exchange(String currency, LocalDateTime startDate, LocalDateTime endDate, double exchangeRate, LocalDateTime queryTime) {
         this.currency = currency;
         this.startDate = startDate;
         this.endDate = endDate;
@@ -39,11 +40,11 @@ public class Exchange {
 
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -71,11 +72,11 @@ public class Exchange {
         this.endDate = endDate;
     }
 
-    public String getExchangeRate() {
+    public double getExchangeRate() {
         return exchangeRate;
     }
 
-    public void setExchangeRate(String exchangeRate) {
+    public void setExchangeRate(double exchangeRate) {
         this.exchangeRate = exchangeRate;
     }
 
