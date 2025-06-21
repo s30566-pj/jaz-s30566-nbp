@@ -1,6 +1,7 @@
 package pl.pjatk.jaz_s30566_nbp.Controller;
 
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -22,7 +23,7 @@ public class ExchangeRateController {
 
     @Operation(summary = "Get avarege price for USD", description = "Returns avarege price of USD for provided range")
     @GetMapping("/avg")
-    public ResponseEntity<Double> getAvgUsd(@RequestParam LocalDateTime start, @RequestParam LocalDateTime end) {
+    public ResponseEntity<Double> getAvgUsd(@Parameter(description = "eg. 2025-04-10T00:00:00") @RequestParam LocalDateTime start, @Parameter(description = "eg. 2025-06-15T00:00:00") @RequestParam LocalDateTime end) {
 
         return ResponseEntity.ok(exchangeService.saveAvgToDb(start, end));
     }
